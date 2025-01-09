@@ -21,10 +21,11 @@ Make a clear list of features that work/dont work
 ### Code Warrior:
 - name: [user inputs]
 - hp: 30
+- special: caffeine
 - caffeineMax: 12
 - caffeine: 6 
 - deals 2-7 damage 
-- special: language 
+- special attack: language 
   - deals 3-11 damage
 - support 
   - restores 5 special to other
@@ -34,10 +35,11 @@ Make a clear list of features that work/dont work
 ### Thief 
 - name: sophia 
 - hp: 30 
+- special: money
 - moneyMax: 12
 - money: 6
 - deals 1-6 damage
-- special: health transfer 
+- special attack: health transfer 
   - damage dealt transfers to you, consumes 2 money
 - support 
   - restores 5 hp to self 
@@ -45,10 +47,11 @@ Make a clear list of features that work/dont work
 ### Brute 
 - name: maddie
 - hp: 30 
+- special: food
 - foodMax: 12
 - food: 6 
 - deals 3-8 damage 
-- special: power
+- special attack: power
   - deals 5-13 damage, ½ applies back on you, consumes 2 food
 - support 
   - restores 6 hp to self, consumes 2 food
