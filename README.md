@@ -26,7 +26,7 @@ Make a clear list of features that work/dont work
 - caffeine: 6 
 - deals 2-7 damage 
 - special attack: language 
-  - deals 3-11 damage
+  - deals 3-12 damage
 - support 
   - restores 5 special to other
   - restores 1 hp and 6 special to self
