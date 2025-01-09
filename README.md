@@ -18,5 +18,38 @@ Make a clear list of features that work/dont work
 
 ## Adventurer Subclasses
 
-replace this with your documentation for your two Adventurer subclasses. If you modify or replace the provided CodeWarrior class, please provide documentation for that as well.
+### Code Warrior:
+- name: [user inputs]
+- hp: 30
+- caffeineMax: 12
+- caffeine: 6 
+- deals 2-7 damage 
+- special: language 
+  - deals 3-11 damage
+- support 
+  - restores 5 special to other
+  - restores 1 hp and 6 special to self
+
+
+### Thief 
+- name: sophia 
+- hp: 30 
+- moneyMax: 12
+- money: 6
+- deals 1-6 damage
+- special: health transfer 
+  - damage dealt transfers to you, consumes 2 money
+- support 
+  - restores 5 hp to self 
+
+### Brute 
+- name: maddie
+- hp: 30 
+- foodMax: 12
+- food: 6 
+- deals 3-8 damage 
+- special: power
+  - deals 5-13 damage, ½ applies back on you, consumes 2 food
+- support 
+  - restores 6 hp to self, consumes 2 food
 
