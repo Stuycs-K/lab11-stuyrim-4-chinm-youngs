@@ -46,12 +46,16 @@ public class Brute extends Adventurer{
       other.applyDamage(damage);
 	  this.applyDamage(damage2);
       return this + " used their power to attack "+ other + " , dealing " + damage + " points of damage." +
-	  "\nThey suffered " + damage2 " points of damage from recoil.";
+	  "\nThey suffered " + damage2 + " points of damage from recoil.";
     }else{
       return "Not enough food to use your power. Instead "+attack(other);
     }
 
   }
+
+  public String support(Adventurer other){
+      return this + " cannot support other adventurers :(";
+    }
 
   public String support(){
     int hp = 6;
