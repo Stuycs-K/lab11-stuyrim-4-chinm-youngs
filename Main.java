@@ -17,5 +17,8 @@ public class Main {
     System.out.println(d.support());
     System.out.println(c.support(d));
     System.out.println("current hp c: " + c.getHP() + "   d: " + d.getHP());
+
+    Adventurer e = Game.createRandomAdventurer();
+    System.out.println(e);
   }
 }

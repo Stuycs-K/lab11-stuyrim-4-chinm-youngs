@@ -60,11 +60,11 @@ public class Game{
     //return a random adventurer (choose between all available subclasses)
     //feel free to overload this method to allow specific names/stats.
     public static Adventurer createRandomAdventurer(){
-      int rand = (int)Math.random() * 4;
+      int rand = (int) (Math.random() * 3);
       if (rand == 0) {
         return new CodeWarrior();
       }
-      if (rand == 1) {
+      else if (rand == 1) {
         return new Brute();
       }
       else {
@@ -146,7 +146,25 @@ public class Game{
     //start with 1 boss and modify the code to allow 2-3 adventurers later.
     ArrayList<Adventurer>enemies = new ArrayList<Adventurer>();
     /*>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>*/
-    //YOUR CODE HERE
+    int ram = (int)(Math.random() * 2) + 1;
+    if (ram == 1) {
+      Adventurer bobo = new Boss();
+      enemies.add(bobo);
+    }
+    else if (ram == 2){
+      Adventurer mopu = createRandomAdventurer();
+      Adventurer grof = createRandomAdventurer();
+      enemies.add(mopu);
+      enemies.add(grof);
+    }
+    else {
+      Adventurer loun = createRandomAdventurer();
+      Adventurer kreen = createRandomAdventurer();
+      Adventurer frwon = createRandomAdventurer();
+      enemies.add(loun);
+      enemies.add(kreen);
+      enemies.add(frwon);
+    }
     /*<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<*/
 
     //Adventurers you control:
