@@ -48,11 +48,11 @@ public class Game{
     //return a random adventurer (choose between all available subclasses)
     //feel free to overload this method to allow specific names/stats.
     public static Adventurer createRandomAdventurer(){
-      int rand = (int)Math.random() * 3;
+      int rand = (int) (Math.random() * 3);
       if (rand == 0) {
         return new CodeWarrior();
       }
-      if (rand == 1) {
+      else if (rand == 1) {
         return new Brute();
       }
       else {
