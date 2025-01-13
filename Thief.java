@@ -64,6 +64,17 @@ public class Thief extends Adventurer{
     }
   }
 
+   /*Restores 5 special to other*/
+  public String support(Adventurer other){
+    return "Gives money to "+other+" and restores "
+    + other.restoreSpecial(5);
+  }
+  /*Restores 5 hp to self*/
+  public String support(){
+    setHP(getHP()+5);
+    return this+" uses money to restore 5 HP";
+  }
+
 
 
 
