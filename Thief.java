@@ -55,7 +55,7 @@ public class Thief extends Adventurer{
       setSpecial(getSpecial()-2);
       int damage = (int)(Math.random()*5) + 1;
       other.applyDamage(damage);
-      this.setHP(getHP + damage);
+      this.setHP(getHP() + damage);
       return this + " used their "+ability+
       " skills steal from an enemy."+
       " This made "+other+" broke, dealing "+ damage +" points of damage.";
@@ -66,8 +66,8 @@ public class Thief extends Adventurer{
 
    /*Restores 5 special to other*/
   public String support(Adventurer other){
-    return "Gives money to "+other+" and restores "
-    + other.restoreSpecial(5);
+    other.setHP(other.getHP() + 5);
+    return "Gives money to "+other+" and restores 5 HP";
   }
   /*Restores 5 hp to self*/
   public String support(){
