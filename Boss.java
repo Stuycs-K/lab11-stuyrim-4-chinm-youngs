@@ -6,11 +6,11 @@ public class Boss extends Adventurer{
     fire = 10;
   }
 
-  public Brute(String name){
+  public Boss(String name){
     this(name,90);
   }
 
-  public Brute(){
+  public Boss(){
     this("Boss");
   }
 
