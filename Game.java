@@ -49,6 +49,23 @@ public class Game{
   *@param height the number of rows
   */
   public static void TextBox(int row, int col, int width, int height, String text){
+    int boxSize = width * height;
+    int textSize = text.length();
+    if(textSize > boxSize) text = text.substring(0, boxSize);
+    if(textSize < boxSize){
+      for(int i = 0; i < boxSize-textSize; i++){
+        text = text + " ";
+      }
+    }
+    int workingRow = row;
+    for(int i = 0; i < text.length(); i+=width){
+      drawText(workingRow, col, text.substring(i, i+width-1));
+    }
+  }
+
+
+
+
     /*>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>*/
     //YOUR CODE HERE
     /*<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<*/
