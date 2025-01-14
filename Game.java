@@ -13,17 +13,17 @@ public class Game{
   //Do not write over the blank areas where text will appear or parties will appear.
   public static void drawBackground(){
     Text.go(2, 1);
-    for(int i = 1; i < 31; i++){
+    for(int i = 1; i < 81; i++){
       System.out.print("\u001b[38;2;"+200+";"+200+";"+200+";7m.");
     }
-    for(int i = 2; i < 82; i++){
+    for(int i = 2; i < 32; i++){
       Text.go(i,1);
       System.out.print("\u001b[38;2;"+200+";"+200+";"+200+";7m.");
-      Text.go(i, 30);
+      Text.go(i, 80);
       System.out.print("\u001b[38;2;"+200+";"+200+";"+200+";7m.");
     }
-    Text.go(81, 1);
-    for(int i = 1; i < 31; i++){
+    Text.go(31, 1);
+    for(int i = 1; i < 81; i++){
       System.out.print("\u001b[38;2;"+200+";"+200+";"+200+";7m.");
     }
   }
