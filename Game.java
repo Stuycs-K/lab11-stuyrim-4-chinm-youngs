@@ -97,6 +97,15 @@ public class Game{
     // under 25% : red
     // under 75% : yellow
     // otherwise : white
+    if (hp < (.25 * maxHP)) {
+      //go to line and change it to red
+    }
+    if (hp > (.25 * maxHP) && hp < (.75 * maxHP)) {
+      //go to line and change to yellow
+    }
+    else {
+      //leave as white
+    }
     return output;
   }
 
@@ -147,7 +156,7 @@ public class Game{
     //start with 1 boss and modify the code to allow 2-3 adventurers later.
     ArrayList<Adventurer>enemies = new ArrayList<Adventurer>();
     /*>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>*/
-    int ram = (int)(Math.random() * 2) + 1;
+    int ram = (int) ((Math.random() * 2) + 1);
     if (ram == 1) {
       Adventurer bobo = new Boss();
       enemies.add(bobo);
