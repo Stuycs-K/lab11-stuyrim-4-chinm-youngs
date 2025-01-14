@@ -12,6 +12,7 @@ public class Game{
   //Display the borders of your screen that will not change.
   //Do not write over the blank areas where text will appear or parties will appear.
   public static void drawBackground(){
+    Text.clear();
     Text.go(2, 1);
     for(int i = 1; i < 81; i++){
       System.out.print("\u001b[38;2;"+200+";"+200+";"+200+";7m.");
@@ -29,13 +30,12 @@ public class Game{
   }
 
 
-  //Display a line of text starting at
+  //Display a line of text starting at a particular row and column
   //(columns and rows start at 1 (not zero) in the terminal)
   //use this method in your other text drawing methods to make things simpler.
   public static void drawText(String s,int startRow, int startCol){
-    /*>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>*/
-    //YOUR CODE HERE
-    /*<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<*/
+    Text.go(startRow, startCol);
+    System.out.print(s);
   }
 
   /*Use this method to place text on the screen at a particular location.

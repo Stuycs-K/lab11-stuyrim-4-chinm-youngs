@@ -20,5 +20,6 @@ public class Main {
 
     Adventurer e = Game.createRandomAdventurer();
     System.out.println(e);
+    Game.drawBackground();
   }
 }
