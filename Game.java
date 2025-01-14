@@ -12,7 +12,7 @@ public class Game{
   //Display the borders of your screen that will not change.
   //Do not write over the blank areas where text will appear or parties will appear.
   public static void drawBackground(){
-    Text.clear;
+    Text.clear();
     Text.go(2, 1);
     for(int i = 1; i < 81; i++){
       System.out.print("\u001b[38;2;"+200+";"+200+";"+200+";7m.");
@@ -27,7 +27,6 @@ public class Game{
     for(int i = 1; i < 81; i++){
       System.out.print("\u001b[38;2;"+200+";"+200+";"+200+";7m.");
     }
-    Text.go(32, 1);
   }
 
 
