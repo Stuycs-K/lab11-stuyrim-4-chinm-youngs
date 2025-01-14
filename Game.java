@@ -127,13 +127,13 @@ public class Game{
 
   public static String userInput(Scanner in){
       //Move cursor to prompt location
-
+      Text.go(????);
       //show cursor
-
+      Text.showCursor();
       String input = in.nextLine();
 
       //clear the text that was written
-
+      Text.clear();
       return input;
   }
 
@@ -148,6 +148,12 @@ public class Game{
     Text.hideCursor();
     Text.clear();
 
+    Scanner inp = new Scanner(System.in);
+    System.out.println("Enter username");
+    String name = userInput(inp);
+    System.out.println("Enter enemy count (1-3)");
+    String count = userInput(inp);
+
 
     //Things to attack:
     //Make an ArrayList of Adventurers and add 1-3 enemies to it.
@@ -155,7 +161,8 @@ public class Game{
     //start with 1 boss and modify the code to allow 2-3 adventurers later.
     ArrayList<Adventurer>enemies = new ArrayList<Adventurer>();
     /*>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>*/
-    int ram = (int) ((Math.random() * 2) + 1);
+    //int ram = (int) ((Math.random() * 2) + 1);
+    int ram = Integer.parseInt(count);
     if (ram == 1) {
       Adventurer bobo = new Boss();
       enemies.add(bobo);
