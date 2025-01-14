@@ -127,7 +127,7 @@ public class Game{
 
   public static String userInput(Scanner in){
       //Move cursor to prompt location
-      Text.go(????);
+      Text.go(32,1);
       //show cursor
       Text.showCursor();
       String input = in.nextLine();
@@ -187,7 +187,12 @@ public class Game{
     //Make an ArrayList of Adventurers and add 2-4 Adventurers to it.
     ArrayList<Adventurer> party = new ArrayList<>();
     /*>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>*/
-    //YOUR CODE HERE
+    Adventurer you = new CodeWarrior(name);
+    party.add(you);
+    Adventurer fren = createRandomAdventurer();
+    Adventurer dilg = createRandomAdventurer();
+    party.add(fren);
+    party.add(dilg);
     /*<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<*/
 
     boolean partyTurn = true;
