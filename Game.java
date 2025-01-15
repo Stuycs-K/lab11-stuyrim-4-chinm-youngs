@@ -57,10 +57,19 @@ public class Game{
         text = text + " ";
       }
     }
-    int workingRow = row;
-    for(int i = 0; i < text.length(); i+=width){
-      drawText(workingRow, col, text.substring(i, i+width-1));
+    //^right
+    Text.hideCursor();
+    Text.clear();
+    int i = 0;
+    for(int j = row; j < row+height; j++){
+      drawText(text.substring(i, i+(width-1)), j, col);
+      i+=width;
     }
+    Text.go(row++,1);//put the terminal at the end of the output again before the program ends.
+
+    Text.reset();
+    Text.showCursor();
+    System.out.println(text + "end");
   }
 
 
