@@ -42,7 +42,7 @@ public class Boss extends Adventurer{
       setSpecial(getSpecial()-4);
       int damage = (int)(Math.random()*5)+8;
       other.applyDamage(damage);
-      return this + " used their fire to attack "+ other + " , dealing " + damage + " points of damage.";
+      return this + " used their fire to burn "+ other + " , dealing " + damage + " points of damage.";
     }else{
       return "Not enough fire to use Boss' power. Instead "+attack(other);
     }
