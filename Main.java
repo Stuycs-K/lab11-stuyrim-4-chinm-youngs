@@ -21,7 +21,7 @@ public class Main {
     Adventurer e = Game.createRandomAdventurer();
     System.out.println(e);
     //Game.drawBackground();
-    Game.TextBox(5, 5, 4, 5, "HELPMEPLEASEIMMAFAILTHISCSLABHORAYYYYY");
+    //Game.TextBox(5, 5, 4, 5, "HELPMEPLEASEIMMAFAILTHISCSLABHORAYYYYY");
     // Game.drawText("abcdefghijklmnopqrstuvwxyz", 3, 3);
   }
 }
