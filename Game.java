@@ -57,19 +57,21 @@ public class Game{
         text = text + " ";
       }
     }
+    //System.out.print(text + "end");
     //^right
     Text.hideCursor();
     Text.clear();
     int i = 0;
-    for(int j = row; j < row+height; j++){
-      drawText(text.substring(i, i+(width-1)), j, col);
+    //for(int j = row; j < row+height; j++){
+      drawText(text.substring(i, i+(width-1)), row, col);
       i+=width;
-    }
+    //}
     Text.go(row++,1);//put the terminal at the end of the output again before the program ends.
 
     Text.reset();
     Text.showCursor();
     System.out.println(text + "end");
+    //row works, column does not, why does it start writing again
   }
 
 
