@@ -60,13 +60,18 @@ public class Game{
     //System.out.print(text + "end");
     //^right
     Text.hideCursor();
-    Text.clear();
-    int i = 0;
-    //for(int j = row; j < row+height; j++){
-      drawText(text.substring(i, i+(width-1)), row, col);
+    //Text.clear();
+    //int i = 0;
+    for(int j = 0; j < height; j++){
+		int start = j * width;
+		int end = Math.min(start + width, text.length());
+		String line = text.substring(start, end);
+		drawText(line, row + j, col);
+     // drawText(text.substring(i, i+(width)), row, col);
       //i+=width;
-    //}
-    Text.go(row++,1);//put the terminal at the end of the output again before the program ends.
+    }
+    Text.go(row+height,1);
+	//put the terminal at the end of the output again before the program ends.
 
     Text.reset();
     Text.showCursor();
