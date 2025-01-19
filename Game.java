@@ -272,7 +272,7 @@ public class Game{
           System.out.println("Which enemy?");
 		  input = userInput(in);
 		  int hit = Integer.parseInt(input);
-		  whichPlayer.attack(enemies[input]);
+		  party.get(whichPlayer).attack(enemies.get(hit));
 		  drawScreen(party, enemies);
           /*<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<*/
         }
@@ -281,7 +281,7 @@ public class Game{
           System.out.println("Which enemy?");
 		  input = userInput(in);
 		  int hit = Integer.parseInt(input);
-		  whichPlayer.specialAttack(enemies[input]);
+		  party.get(whichPlayer).specialAttack(enemies.get(hit));
 		  drawScreen(party, enemies);
           /*<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<*/
         }
@@ -292,7 +292,7 @@ public class Game{
           System.out.println("Which player?");
 		  input = userInput(in);
 		  int hit = Integer.parseInt(input);
-		  whichPlayer.support(enemies[input]);
+		  party.get(whichPlayer).support(enemies.get(hit));
 		  drawScreen(party, enemies);
           /*<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<*/
         }
@@ -327,15 +327,15 @@ public class Game{
         int ran = (int) (Math.random() * 3) + 1;
 		int hitt = (int) (Math.random() * 3);
 	  if (ran == 1) {
-		  return whichOpponent.attack(party[hitt]);
+		   enemies.get(whichOpponent).attack(party.get(hitt));
 	  }
 	  else if (ran == 2) {
-		  return one.specialAttack(party[hitt]);
+		   enemies.get(whichOpponent).specialAttack(party.get(hitt));
 	  }
 	  else if (ran == 3) {
-		  return one.support();
+		   enemies.get(whichOpponent).support();
 	  }
-	  return "Something went wrong :(";
+	  
         /*<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<*/
 
 
