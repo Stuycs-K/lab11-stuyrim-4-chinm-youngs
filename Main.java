@@ -1,3 +1,4 @@
+import java.util.*;
 public class Main {
   public static void main (String[] args) {
     Adventurer a = new Brute();
@@ -25,5 +26,11 @@ public class Main {
 	Game.TextBox(5, 5, 4, 10, "HELPMEPLEASEIMMAFAILTHISCSLABHORAYYYYY");
      //Game.drawText("abcdefghijklmnopqrstuvwxyz", 10, 3);
      //Game.TextBox(6, 29, 3, 4, "abcdefg");
+	 ArrayList<Adventurer> wuh = new ArrayList<>();
+	 wuh.add(a);
+	 wuh.add(b);
+	 wuh.add(d);
+	 Text.clear();
+	 Game.drawParty(wuh, 5);
   }
 }

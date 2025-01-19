@@ -112,6 +112,13 @@ public class Game{
       /*>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>*/
       //YOUR CODE HERE
       /*<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<*/
+	  int start = startRow;
+	  for (int y = 0; y < party.size(); y++) {
+		  drawText(party.get(y).getName(),start,1);
+		  drawText("HP: " + party.get(y).getHP(), start + 1, 1);
+		  drawText("Special: " + party.get(y).getSpecial(), start + 2, 1);
+		  start = start + 4;
+	  }
     }
 
 
