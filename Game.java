@@ -249,7 +249,7 @@ public class Game{
     //Draw the window border
 
     //You can add parameters to draw screen!
-    //drawScreen();//initial state.
+    drawScreen(party,enemies);//initial state.
 
     //Main loop
 
@@ -269,19 +269,31 @@ public class Game{
         //Process user input for the last Adventurer:
         if(input.equals("attack") || input.equals("a")){
           /*>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>*/
-          //YOUR CODE HERE
+          System.out.println("Which enemy?");
+		  input = userInput(in);
+		  int hit = Integer.parseInt(input);
+		  whichPlayer.attack(enemies[input]);
+		  drawScreen(party, enemies);
           /*<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<*/
         }
         else if(input.equals("special") || input.equals("sp")){
           /*>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>*/
-          //YOUR CODE HERE
+          System.out.println("Which enemy?");
+		  input = userInput(in);
+		  int hit = Integer.parseInt(input);
+		  whichPlayer.specialAttack(enemies[input]);
+		  drawScreen(party, enemies);
           /*<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<*/
         }
         else if(input.startsWith("su ") || input.startsWith("support ")){
           //"support 0" or "su 0" or "su 2" etc.
           //assume the value that follows su  is an integer.
           /*>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>*/
-          //YOUR CODE HERE
+          System.out.println("Which player?");
+		  input = userInput(in);
+		  int hit = Integer.parseInt(input);
+		  whichPlayer.support(enemies[input]);
+		  drawScreen(party, enemies);
           /*<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<*/
         }
 
@@ -312,7 +324,18 @@ public class Game{
         //enemy attacks a randomly chosen person with a randomly chosen attack.z`
         //Enemy action choices go here!
         /*>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>*/
-        //YOUR CODE HERE
+        int ran = (int) (Math.random() * 3) + 1;
+		int hitt = (int) (Math.random() * 3);
+	  if (ran == 1) {
+		  return whichOpponent.attack(party[hitt]);
+	  }
+	  else if (ran == 2) {
+		  return one.specialAttack(party[hitt]);
+	  }
+	  else if (ran == 3) {
+		  return one.support();
+	  }
+	  return "Something went wrong :(";
         /*<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<*/
 
 
@@ -335,7 +358,7 @@ public class Game{
       }
 
       //display the updated screen after input has been processed.
-    //  drawScreen();
+      drawScreen(party,enemies);
 
 
     }//end of main game loop
