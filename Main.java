@@ -20,9 +20,10 @@ public class Main {
 
     Adventurer e = Game.createRandomAdventurer();
     System.out.println(e);
-    //Game.drawBackground();
-    //Game.TextBox(5, 5, 4, 10, "HELPMEPLEASEIMMAFAILTHISCSLABHORAYYYYY");
+    //Game.drawBackground(); 
+    Text.clear();
+	Game.TextBox(5, 5, 4, 10, "HELPMEPLEASEIMMAFAILTHISCSLABHORAYYYYY");
      //Game.drawText("abcdefghijklmnopqrstuvwxyz", 10, 3);
-     Game.TextBox(6, 29, 3, 4, "abcdefg");
+     //Game.TextBox(6, 29, 3, 4, "abcdefg");
   }
 }
