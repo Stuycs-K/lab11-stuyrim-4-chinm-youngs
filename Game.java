@@ -17,13 +17,13 @@ public class Game{
     for(int i = 1; i < 81; i++){
       System.out.print("\u001b[38;2;"+200+";"+200+";"+200+";7m.");
     }
-    for(int i = 2; i < 32; i++){
+    for(int i = 2; i < 30; i++){
       Text.go(i,1);
       System.out.print("\u001b[38;2;"+200+";"+200+";"+200+";7m.");
       Text.go(i, 80);
       System.out.print("\u001b[38;2;"+200+";"+200+";"+200+";7m.");
     }
-    Text.go(31, 1);
+    Text.go(30, 1);
     for(int i = 1; i < 81; i++){
       System.out.print("\u001b[38;2;"+200+";"+200+";"+200+";7m.");
     }
@@ -112,12 +112,12 @@ public class Game{
       /*>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>*/
       //YOUR CODE HERE
       /*<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<*/
-	  int start = startRow;
+	  int col = 2;
 	  for (int y = 0; y < party.size(); y++) {
-		  drawText(party.get(y).getName(),start,1);
-		  drawText("HP: " + party.get(y).getHP(), start + 1, 1);
-		  drawText("Special: " + party.get(y).getSpecial(), start + 2, 1);
-		  start = start + 4;
+		  drawText(party.get(y).getName(),startRow,col);
+		  drawText("HP: " + party.get(y).getHP(), startRow + 1, col);
+		  drawText("Special: " + party.get(y).getSpecial(), startRow + 2, col);
+		  col = col + 25;
 	  }
     }
 
@@ -157,11 +157,17 @@ public class Game{
     drawBackground();
 
     //draw player party
-	drawParty(players, 5);
+	Text.go(26,2);
+	System.out.println("Players:");
+	drawParty(players, 27);
 
     //draw enemy party
-	drawParty(enemies, 20);
-
+	Text.go(3,2);
+	System.out.println("Enemies:");
+	drawParty(enemies, 4);
+	
+	Text.go(32,1);
+	System.out.println();
   }
 
   public static String userInput(Scanner in){
