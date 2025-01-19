@@ -32,5 +32,8 @@ public class Main {
 	 wuh.add(d);
 	 Text.clear();
 	 Game.drawParty(wuh, 5);
+	 
+	 Text.clear();
+	 Game.drawScreen(wuh, wuh);
   }
 }
