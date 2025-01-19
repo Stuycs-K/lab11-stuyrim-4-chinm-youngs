@@ -131,13 +131,17 @@ public class Game{
     // otherwise : white
     if (hp < (.25 * maxHP)) {
       //go to line and change it to red
+	  output = "\u001b[" + Text.RED + "m" + output;
     }
     if (hp > (.25 * maxHP) && hp < (.75 * maxHP)) {
       //go to line and change to yellow
+	  output = "\u001b[" + Text.YELLOW + "m" + output;
     }
     else {
       //leave as white
+	  output = "\u001b[" + Text.WHITE + "m" + output;
     }
+	Text.reset();
     return output;
   }
 
