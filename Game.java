@@ -14,18 +14,18 @@ public class Game{
   public static void drawBackground(){
     Text.clear();
     Text.go(2, 1);
-    for(int i = 1; i < 81; i++){
-      System.out.print("\u001b[38;2;"+200+";"+200+";"+200+";7m.");
+    for(int i = 0; i < WIDTH; i++){
+      System.out.print(Text.colorize(".", Text.WHITE, Text.WHITE+Text.BACKGROUND));
     }
-    for(int i = 2; i < 30; i++){
+    for(int i = 2; i < HEIGHT; i++){
       Text.go(i,1);
-      System.out.print("\u001b[38;2;"+200+";"+200+";"+200+";7m.");
-      Text.go(i, 80);
-      System.out.print("\u001b[38;2;"+200+";"+200+";"+200+";7m.");
+      System.out.print(Text.colorize(".", Text.WHITE, Text.WHITE+Text.BACKGROUND));
+      Text.go(i, WIDTH);
+      System.out.print(Text.colorize(".", Text.WHITE, Text.WHITE+Text.BACKGROUND));
     }
     Text.go(30, 1);
     for(int i = 1; i < 81; i++){
-      System.out.print("\u001b[38;2;"+200+";"+200+";"+200+";7m.");
+      System.out.print(Text.colorize(".", Text.WHITE, Text.WHITE+Text.BACKGROUND));
     }
   }
 
@@ -57,31 +57,18 @@ public class Game{
         text = text + " ";
       }
     }
-    //System.out.print(text + "end");
-    //^right
     Text.hideCursor();
-    //Text.clear();
-    //int i = 0;
     for(int j = 0; j < height; j++){
-		int start = j * width;
-		int end = Math.min(start + width, text.length());
-		String line = text.substring(start, end);
-		drawText(line, row + j, col);
-     // drawText(text.substring(i, i+(width)), row, col);
-      //i+=width;
+      int start = j * width;
+      int end = Math.min(start + width, text.length());
+      String line = text.substring(start, end);
+      drawText(line, row + j, col);
     }
     Text.go(row+height,1);
 	//put the terminal at the end of the output again before the program ends.
-
     Text.reset();
     Text.showCursor();
-    //System.out.println(text + "end");
-    //row works, column does not, why does it start writing again
   }
-
-
-
-
 
     //return a random adventurer (choose between all available subclasses)
     //feel free to overload this method to allow specific names/stats.
@@ -108,17 +95,13 @@ public class Game{
     * ***THIS ROW INTENTIONALLY LEFT BLANK***
     */
     public static void drawParty(ArrayList<Adventurer> party,int startRow){
-
-      /*>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>*/
-      //YOUR CODE HERE
-      /*<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<*/
-	  int col = 2;
-	  for (int y = 0; y < party.size(); y++) {
-		  drawText(party.get(y).getName(),startRow,col);
-		  drawText("HP: " + party.get(y).getHP(), startRow + 1, col);
-		  drawText("Special: " + party.get(y).getSpecial(), startRow + 2, col);
-		  col = col + 25;
-	  }
+      int col = 2;
+      for (int y = 0; y < party.size(); y++) {
+        drawText(party.get(y).getName(),startRow,col);
+        drawText("HP: " + party.get(y).getHP(), startRow + 1, col);
+        drawText("Special: " + party.get(y).getSpecial(), startRow + 2, col);
+        col = col + 25;
+      }
     }
 
 
@@ -131,15 +114,15 @@ public class Game{
     // otherwise : white
     if (hp < (.25 * maxHP)) {
       //go to line and change it to red
-	  output = "\u001b[" + Text.RED + "m" + output;
+	    output = "\u001b[" + Text.RED + "m" + output;
     }
     if (hp > (.25 * maxHP) && hp < (.75 * maxHP)) {
       //go to line and change to yellow
-	  output = "\u001b[" + Text.YELLOW + "m" + output;
+	    output = "\u001b[" + Text.YELLOW + "m" + output;
     }
     else {
       //leave as white
-	  output = "\u001b[" + Text.WHITE + "m" + output;
+	    output = "\u001b[" + Text.WHITE + "m" + output;
     }
 	Text.reset();
     return output;
@@ -157,17 +140,17 @@ public class Game{
     drawBackground();
 
     //draw player party
-	Text.go(26,2);
-	System.out.println("Players:");
-	drawParty(players, 27);
+    Text.go(26,2);
+    System.out.println("Players:");
+    drawParty(players, 27);
 
     //draw enemy party
-	Text.go(3,2);
-	System.out.println("Enemies:");
-	drawParty(enemies, 4);
-	
-	Text.go(32,1);
-	System.out.println();
+    Text.go(3,2);
+    System.out.println("Enemies:");
+    drawParty(enemies, 4);
+    
+    Text.go(32,1);
+    System.out.println();
   }
 
   public static String userInput(Scanner in){
