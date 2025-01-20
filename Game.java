@@ -239,9 +239,7 @@ public class Game{
     //Main loop
 
     //display this prompt at the start of the game.
-    String preprompt = "Enter command for "+party.get(whichPlayer)+": attack/special/support/quit";
-	Text.go(32,1);
-	System.out.println(preprompt);
+    
 
 
     while(! (input.equalsIgnoreCase("q") || input.equalsIgnoreCase("quit"))){
@@ -254,11 +252,21 @@ public class Game{
 
       //display event based on last turn's input
       if(partyTurn){
+		  String preprompt = "Enter command for "+party.get(whichPlayer)+": attack/special/support/quit";
+	Text.go(32,1);
+	  System.out.println(preprompt); }
+	else {
+		String prepreprompt = "Press to see enemy's turn";
+		Text.go(32,1);
+		System.out.println(prepreprompt);
+	}
 		 // Text.go(32,1);
 		  //System.out.println(preprompt);
-		  //input = userInput(in);
+		  input = userInput(in);
+		  if (partyTurn) {
+			  if (party.get(whichPlayer).getHP() > 0) {
 		  
-		   while (party.get(whichPlayer).getHP() > 0) {
+		   //while (party.get(whichPlayer).getHP() > 0) {
         //Process user input for the last Adventurer:
         if(input.equals("attack") || input.equals("a")){
           /*>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>*/
@@ -297,38 +305,44 @@ public class Game{
 		//  Text.go(32,1);
 	//System.out.println("Enter command for "+party.get(whichPlayer)+": attack/special/support/quit");
           /*<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<*/
-		   }}
+		   } }
 
         //You should decide when you want to re-ask for user input
         //If no errors:
         whichPlayer++;
 
 
-        if(whichPlayer < party.size()){
+     /*   if(whichPlayer < party.size() && party.get(whichPlayer).getHP() > 0){
           //This is a player turn.
           //Decide where to draw the following prompt:
-          String prompt = "Enter command for "+party.get(whichPlayer)+": attack/special/support/quit";
+           
+
+        }*/ if (whichPlayer < party.size()){
+			String prompt = "Enter command for "+party.get(whichPlayer)+": attack/special/support/quit";
 		  Text.go(32,1);
 	System.out.println(prompt);
-
-        }else{
           //This is after the player's turn, and allows the user to see the enemy turn
           //Decide where to draw the following prompt:
-          String prompt = "press enter to see monster's turn";
-		  Text.go(32,1);
-	System.out.println(prompt);
-          partyTurn = false;
-          whichOpponent = 0;
+         // String prompt = "press enter to see monster's turn";
+		//  Text.go(32,1);
+	//System.out.println(prompt);
+          
         }
         //done with one party member
-      }else{
+      else{
         //not the party turn!
+		partyTurn = false;
+          whichOpponent = 0;
+		  String prompt = "press enter to see monster's turn";
+		  Text.go(32,1);
+		  System.out.println(prompt); } }
+		  else {
 
 
         //enemy attacks a randomly chosen person with a randomly chosen attack.z`
         //Enemy action choices go here!
         /*>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>*/
-        while (enemies.get(whichOpponent).getHP() > 0) {
+        if (enemies.get(whichOpponent).getHP() > 0) {
 		int ran = (int) (Math.random() * 3) + 1;
 		int hitt = (int) (Math.random() * 3);
 	  if (ran == 1) {
@@ -345,14 +359,18 @@ public class Game{
 
 
         //Decide where to draw the following prompt:
-        String prompt = "press enter to see next turn";
+        //String prompt = "press enter to see next turn";
 
         whichOpponent++;
 
-      }//end of one enemy.
+      //end of one enemy.
 
       //modify this if statement.
-      if(!partyTurn && whichOpponent >= enemies.size()){
+      if(whichOpponent < enemies.size()){
+		  String prompt  = "Press to see next enemy's turn.";
+		  Text.go(32,1);
+		  System.out.println(prompt);
+	  } else{
         //THIS BLOCK IS TO END THE ENEMY TURN
         //It only triggers after the last enemy goes.
         whichPlayer = 0;
@@ -360,12 +378,12 @@ public class Game{
         partyTurn=true;
         //display this prompt before player's turn
         String prompt = "Enter command for "+party.get(whichPlayer)+": attack/special/quit";
-      }
+		  }}
 
       //display the updated screen after input has been processed.
       drawScreen(party,enemies);
 
-
+	  
     }//end of main game loop
 
 
