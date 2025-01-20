@@ -291,7 +291,7 @@ public class Game{
           System.out.println("Which player?");
 		  input = userInput(in);
 		  int hit = Integer.parseInt(input);
-		  String yap = party.get(whichPlayer).support(enemies.get(hit));
+		  String yap = party.get(whichPlayer).support(party.get(hit));
 		  drawScreen(party, enemies);
 		//  TextBox(15,2,78,3,yap);
 		//  Text.go(32,1);
