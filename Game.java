@@ -194,8 +194,10 @@ public class Game{
     Text.clear();
 
     Scanner inp = new Scanner(System.in);
+	Text.go(20,1);
     System.out.println("Enter username");
     String name = userInput(inp);
+	Text.go(20,1);
     System.out.println("Enter enemy count (1-3)");
     String count = userInput(inp);
 
@@ -254,26 +256,37 @@ public class Game{
     //Main loop
 
     //display this prompt at the start of the game.
-    String preprompt = "Enter command for "+party.get(whichPlayer)+": attack/special/quit";
+    String preprompt = "Enter command for "+party.get(whichPlayer)+": attack/special/support/quit";
+	Text.go(32,1);
+	System.out.println(preprompt);
+
 
     while(! (input.equalsIgnoreCase("q") || input.equalsIgnoreCase("quit"))){
       //Read user input
       input = userInput(in);
+	  
 
       //example debug statment
-      TextBox(24,2,1,78,"input: "+input+" partyTurn:"+partyTurn+ " whichPlayer="+whichPlayer+ " whichOpp="+whichOpponent );
+      //TextBox(24,2,1,78,"input: "+input+" partyTurn:"+partyTurn+ " whichPlayer="+whichPlayer+ " whichOpp="+whichOpponent );
 
       //display event based on last turn's input
       if(partyTurn){
-
+		 // Text.go(32,1);
+		  //System.out.println(preprompt);
+		  //input = userInput(in);
+		  
+		   while (party.get(whichPlayer).getHP() > 0) {
         //Process user input for the last Adventurer:
         if(input.equals("attack") || input.equals("a")){
           /*>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>*/
           System.out.println("Which enemy?");
 		  input = userInput(in);
 		  int hit = Integer.parseInt(input);
-		  party.get(whichPlayer).attack(enemies.get(hit));
+		  String yap = party.get(whichPlayer).attack(enemies.get(hit));
 		  drawScreen(party, enemies);
+		//  TextBox(15,2,78,3,yap);
+		 // Text.go(32,1);
+	//System.out.println("Enter command for "+party.get(whichPlayer)+": attack/special/support/quit");
           /*<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<*/
         }
         else if(input.equals("special") || input.equals("sp")){
@@ -281,8 +294,11 @@ public class Game{
           System.out.println("Which enemy?");
 		  input = userInput(in);
 		  int hit = Integer.parseInt(input);
-		  party.get(whichPlayer).specialAttack(enemies.get(hit));
+		  String yap = party.get(whichPlayer).specialAttack(enemies.get(hit));
 		  drawScreen(party, enemies);
+		//  TextBox(15,2,78,3,yap);
+	//	  Text.go(32,1);
+	//System.out.println("Enter command for "+party.get(whichPlayer)+": attack/special/support/quit");
           /*<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<*/
         }
         else if(input.startsWith("su ") || input.startsWith("support ")){
@@ -292,10 +308,13 @@ public class Game{
           System.out.println("Which player?");
 		  input = userInput(in);
 		  int hit = Integer.parseInt(input);
-		  party.get(whichPlayer).support(enemies.get(hit));
+		  String yap = party.get(whichPlayer).support(enemies.get(hit));
 		  drawScreen(party, enemies);
+		//  TextBox(15,2,78,3,yap);
+		//  Text.go(32,1);
+	//System.out.println("Enter command for "+party.get(whichPlayer)+": attack/special/support/quit");
           /*<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<*/
-        }
+		   }}
 
         //You should decide when you want to re-ask for user input
         //If no errors:
@@ -305,14 +324,16 @@ public class Game{
         if(whichPlayer < party.size()){
           //This is a player turn.
           //Decide where to draw the following prompt:
-          String prompt = "Enter command for "+party.get(whichPlayer)+": attack/special/quit";
-
+          String prompt = "Enter command for "+party.get(whichPlayer)+": attack/special/support/quit";
+		  Text.go(32,1);
+	System.out.println(prompt);
 
         }else{
           //This is after the player's turn, and allows the user to see the enemy turn
           //Decide where to draw the following prompt:
           String prompt = "press enter to see monster's turn";
-
+		  Text.go(32,1);
+	System.out.println(prompt);
           partyTurn = false;
           whichOpponent = 0;
         }
@@ -324,7 +345,8 @@ public class Game{
         //enemy attacks a randomly chosen person with a randomly chosen attack.z`
         //Enemy action choices go here!
         /*>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>*/
-        int ran = (int) (Math.random() * 3) + 1;
+        while (enemies.get(whichOpponent).getHP() > 0) {
+		int ran = (int) (Math.random() * 3) + 1;
 		int hitt = (int) (Math.random() * 3);
 	  if (ran == 1) {
 		   enemies.get(whichOpponent).attack(party.get(hitt));
@@ -335,7 +357,7 @@ public class Game{
 	  else if (ran == 3) {
 		   enemies.get(whichOpponent).support();
 	  }
-	  
+		}
         /*<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<*/
 
 
