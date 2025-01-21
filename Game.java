@@ -257,10 +257,14 @@ public class Game{
 			 // TextBox(15,2,78,3,yap);
 			//  drawScreen(party,enemies);
 			
-			  String preprompt = "Enter command for "+party.get(whichPlayer)+": attack/special/support/quit, and target (starting from 0)";
+			  String preprompt = "Enter command for "+party.get(whichPlayer)+": attack/a/special/sp/support/su/quit, and target (starting from 0)";
 				Text.go(32,1);
 				System.out.println(preprompt); 
 			  input = userInput(in);
+        while(input.equals("")){
+          System.out.print(preprompt + " ex: attack 1, sp 2");
+          input = userInput(in);
+        }
 			  
 			  
 			  if (input.equals("q") || input.equals("quit")) {
