@@ -18,6 +18,12 @@ Make a clear list of features that work/dont work
 
 ## Adventurer Subclasses
 
+|Aspects |Code Warrior|Thief|Brute|
+|---|---|---|---|
+|Name|Carmack/user|Sophia|Maddie|
+|HPMax|30|30|30|
+|Special|Caffeine|Money||
+
 ### Code Warrior:
 - name: [user inputs]
 - hp: 30
@@ -74,3 +80,14 @@ Make a clear list of features that work/dont work
   - restores 6 hp and 6 special to self
 - extra feature
   - status effect: target may be burned and lose small amounts of hp
+
+|Feature|Status|
+|---|---|
+|Direct attacks||
+|Critical hit(Brute)||
+|Move Steal(Thief)||
+|||
+|||
+|||
+|||
+|||
