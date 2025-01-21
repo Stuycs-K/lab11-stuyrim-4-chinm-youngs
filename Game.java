@@ -370,10 +370,19 @@ public class Game{
         //enemy attacks a randomly chosen person with a randomly chosen attack.z`
         //Enemy action choices go here!
         /*>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>*/
-	   if (enemies.get(whichOpponent).getHP() > 0) {
+	   if (enemies.get(whichOpponent).getHP() <= 0) {
+		   yap = "That character is dead and cannot attack :(";
+	   }
+		   else{
 		int ran = (int) (Math.random() * 3) + 1;
 		int hitt = (int) (Math.random() * party.size());
 		//String yap = "";
+		if (countT == 3) {
+			//whichOpponent++;
+			yap = "Sophia stole their move :(";
+			countT = 0;
+		}
+		else {
 	  if (ran == 1) {
 		    yap = enemies.get(whichOpponent).attack(party.get(hitt));
 	  }
@@ -383,11 +392,10 @@ public class Game{
 	  else if (ran == 3) {
 		    yap = enemies.get(whichOpponent).support();
 	  }
-	  
 		}
-		else {
-			   yap = "That character is dead and cannot attack :(";
-		   }
+		
+		  }
+		
 		drawScreen(party,enemies);
 	  TextBox(15,2,78,3,yap);
         /*<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<*/
