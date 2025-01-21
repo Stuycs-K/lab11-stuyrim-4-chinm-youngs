@@ -97,8 +97,9 @@ public class Game{
     public static void drawParty(ArrayList<Adventurer> party,int startRow){
       int col = 2;
       for (int y = 0; y < party.size(); y++) {
+		String chealth = colorByPercent(party.get(y).getHP(), party.get(y).getmaxHP());
         drawText(party.get(y).getName(),startRow,col);
-        drawText("HP: " + party.get(y).getHP(), startRow + 1, col);
+        drawText("HP: " + chealth + "\u001b[" + Text.WHITE + "m", startRow + 1, col);
         drawText("Special: " + party.get(y).getSpecial(), startRow + 2, col);
         col = col + 25;
       }
@@ -302,6 +303,9 @@ public class Game{
 		  TextBox(15,2,78,3,yap);
 		 /*<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<*/
 		   } }
+		   else {
+			   yap = "That character is dead and cannot attack :(";
+		   }
 
         //You should decide when you want to re-ask for user input
         //If no errors:
@@ -347,10 +351,13 @@ public class Game{
 	  else if (ran == 3) {
 		    yap = enemies.get(whichOpponent).support();
 	  }
-	  drawScreen(party,enemies);
-	  TextBox(15,2,78,3,yap);
+	  
 		}
-		
+		else {
+			   yap = "That character is dead and cannot attack :(";
+		   }
+		drawScreen(party,enemies);
+	  TextBox(15,2,78,3,yap);
         /*<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<*/
 
 
