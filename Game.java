@@ -270,7 +270,18 @@ public class Game{
 			  
 				  String[] inputs = input.split(" ");
 			  String move = inputs[0];
-			  int aim = Integer.parseInt(inputs[1]);
+        int aim = 0;
+
+        if(inputs.length >= 2){
+          aim = Integer.parseInt(inputs[1]);
+        }
+        if(inputs.length < 2){
+          System.out.println("which enemy(or person)?");
+          String inputput = userInput(in);
+          aim = Integer.parseInt(inputput);
+        }
+
+			  
 			  if (party.get(whichPlayer).getHP() > 0) {
 		  
 		   

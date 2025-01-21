@@ -94,7 +94,7 @@ Make a clear list of features that work/dont work
 |Player moves| :question: |
 |quit| :white_check_mark: |
 |Enemy moves| :white_check_mark: |
-|Death| :white_check_mark: |
+|Death| :question: |
 |Critical hit(Brute)|:ballot_box_with_check: |
-|Move Steal(Thief)| :question: |
+|Move Steal(Thief)| :ballot_box_with_check: |
 |Colored HP| :white_check_mark: |
