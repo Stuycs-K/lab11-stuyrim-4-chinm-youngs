@@ -91,7 +91,7 @@ Make a clear list of features that work/dont work
 |Feature|Status|
 |---|---|
 |Display Screen| :white_check_mark: |
-|Player moves| :question: |
+|Player moves| :white_check_mark: |
 |quit| :white_check_mark: |
 |Enemy moves| :white_check_mark: |
 |Death| :question: |

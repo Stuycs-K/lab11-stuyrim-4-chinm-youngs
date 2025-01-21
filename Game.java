@@ -184,6 +184,7 @@ public class Game{
 	Text.go(32,1);
     System.out.println("Enter enemy count (1-3)");
     String count = userInput(inp);
+    boolean bossFight = false;
 
 
     //Things to attack:
@@ -197,6 +198,7 @@ public class Game{
     if (ram == 1) {
       Adventurer bobo = new Boss();
       enemies.add(bobo);
+      bossFight = true;
     }
     else if (ram == 2){
       Adventurer mopu = createRandomAdventurer();
@@ -276,13 +278,18 @@ public class Game{
 			  String move = inputs[0];
         int aim = 0;
 
-        if(inputs.length >= 2){
+        if(inputs.length >= 2 && bossFight == false){
           aim = Integer.parseInt(inputs[1]);
         }
-        if(inputs.length < 2){
-          System.out.println("which enemy(or person)?");
-          String inputput = userInput(in);
-          aim = Integer.parseInt(inputput);
+        else{
+          if(bossFight && !(move.equals("su")||move.equals("support"))){
+            aim = 0;
+          }
+          else{
+            System.out.println("which enemy/person?");
+            String inputput = userInput(in);
+            aim = Integer.parseInt(inputput);
+          }
         }
 
 			  
@@ -345,7 +352,12 @@ public class Game{
          // System.out.println("Which player?");
 		  //input = userInput(in);
 		  //int hit = Integer.parseInt(input);
+      if(whichPlayer == aim){
+        yap = party.get(whichPlayer).support();
+      }
+      else{
 		   yap = party.get(whichPlayer).support(party.get(aim));
+      }
 		  drawScreen(party, enemies);
 		  TextBox(15,2,78,3,yap);
 		  if (party.get(whichPlayer).getName().equals("Maddie")) {
