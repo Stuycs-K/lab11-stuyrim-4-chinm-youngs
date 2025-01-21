@@ -252,7 +252,8 @@ public class Game{
    
 		
 		  if (partyTurn) {
-			  //drawScreen(party,enemies);
+			 // TextBox(15,2,78,3,yap);
+			//  drawScreen(party,enemies);
 			  String preprompt = "Enter command for "+party.get(whichPlayer)+": attack/special/support/quit";
 				Text.go(32,1);
 				System.out.println(preprompt); 
@@ -315,18 +316,19 @@ public class Game{
 
         }*/ if (whichPlayer >= party.size()){
 			partyTurn = false;
+			whichPlayer = 0;
           whichOpponent = 0;
 		  //turn++;
-		  String prompt = "press enter to see monster's turn";
-		  Text.go(32,1);
-		  System.out.println(prompt); 
-		  input = userInput(in);
 		}
 		
         }
         //done with one party member
      
 		  else {
+			  String promptt = "press enter to see enemy's turn";
+		  Text.go(32,1);
+		  System.out.println(promptt); 
+		  input = userInput(in);
 
 
         //enemy attacks a randomly chosen person with a randomly chosen attack.z`
@@ -334,7 +336,7 @@ public class Game{
         /*>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>*/
 	   if (enemies.get(whichOpponent).getHP() > 0) {
 		int ran = (int) (Math.random() * 3) + 1;
-		int hitt = (int) (Math.random() * 3);
+		int hitt = (int) (Math.random() * party.size());
 		//String yap = "";
 	  if (ran == 1) {
 		    yap = enemies.get(whichOpponent).attack(party.get(hitt));
@@ -359,12 +361,13 @@ public class Game{
       //modify this if statement.
       if(whichOpponent >= enemies.size()){
 		  
-        whichOpponent = 0;
+        whichPlayer = 0;
+		whichOpponent = 0;
         partyTurn=true;
-        String prompt = "Enter command for "+party.get(whichPlayer)+": attack/special/quit";
-		  Text.go(32,1);
-		  System.out.println(prompt);
-		  input = userInput(in);
+       // String prompt = "Enter command for "+party.get(whichPlayer)+": attack/special/quit";
+		//  Text.go(32,1);
+		//  System.out.println(prompt);
+		//  input = userInput(in);
 		  }}
 
       //display the updated screen after input has been processed.
