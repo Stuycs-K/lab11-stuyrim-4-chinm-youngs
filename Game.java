@@ -178,10 +178,10 @@ public class Game{
     Text.clear();
 
     Scanner inp = new Scanner(System.in);
-	Text.go(20,1);
+	Text.go(32,1);
     System.out.println("Enter username");
     String name = userInput(inp);
-	Text.go(20,1);
+	Text.go(32,1);
     System.out.println("Enter enemy count (1-3)");
     String count = userInput(inp);
 
@@ -272,7 +272,8 @@ public class Game{
         //Process user input for the last Adventurer:
         if(input.equals("attack") || input.equals("a")){
           /*>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>*/
-          System.out.println("Which enemy?");
+			drawScreen(party,enemies);
+		 System.out.println("Which enemy?");
 		  input = userInput(in);
 		  int hit = Integer.parseInt(input);
 		  if (party.get(whichPlayer).getName().equals("Maddie")) {
