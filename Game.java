@@ -424,6 +424,8 @@ public class Game{
 		   else{
 		int ran = (int) (Math.random() * 3) + 1;
 		int hitt = (int) (Math.random() * party.size());
+    while(party.get(hitt).getHP() < 1)
+      {hitt = (int) (Math.random() * party.size());}
 		//String yap = "";
 		if (countT == 3) {
 			//whichOpponent++;
