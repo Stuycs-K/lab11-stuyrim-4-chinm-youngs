@@ -90,11 +90,20 @@ Make a clear list of features that work/dont work
 
 |Feature|Status|
 |---|---|
-|Display Screen| :white_check_mark: |
+|play with a group of 3 different types adventurers| :white_check_mark: |
+|play against 1-3 randomly chosen adventurer opponents| :white_check_mark: |
+|use attack/special operations on your opponents| :white_check_mark: |
+|use support operations on your team| :white_check_mark: |
+|program ends when the user chooses to quit, all enemies is defeated, or the entire party is defeated| :white_check_mark: |
+|display the results of the attack/special/support inside your border| :white_check_mark: |
+|A special boss class adventurer for when a single opponent is selected| :white_check_mark: |
+|---|---|
 |Player moves| :white_check_mark: |
 |quit| :white_check_mark: |
 |Enemy moves| :white_check_mark: |
-|Death| :question: |
+|Boss | :white_check_mark: |
+|Death| :white_check_mark: |
 |Critical hit(Brute)|:ballot_box_with_check: |
 |Move Steal(Thief)| :ballot_box_with_check: |
 |Colored HP| :white_check_mark: |
+|End Screen| :white_check_mark: |

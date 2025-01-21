@@ -222,8 +222,10 @@ public class Game{
     /*>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>*/
     Adventurer you = new CodeWarrior(name);
     party.add(you);
-    Adventurer fren = createRandomAdventurer();
-    Adventurer dilg = createRandomAdventurer();
+    Adventurer fren = new Thief();
+    Adventurer dilg = new Brute();
+    //Adventurer fren = createRandomAdventurer();
+    //Adventurer dilg = createRandomAdventurer();
     party.add(fren);
     party.add(dilg);
     /*<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<*/
