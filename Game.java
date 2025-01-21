@@ -240,7 +240,8 @@ public class Game{
     //Main loop
 
     //display this prompt at the start of the game.
-    
+    int countB = 0;
+	int countT = 0;
 
 
     while(! (input.equalsIgnoreCase("q") || input.equalsIgnoreCase("quit"))){
@@ -255,6 +256,7 @@ public class Game{
 		  if (partyTurn) {
 			 // TextBox(15,2,78,3,yap);
 			//  drawScreen(party,enemies);
+			
 			  String preprompt = "Enter command for "+party.get(whichPlayer)+": attack/special/support/quit";
 				Text.go(32,1);
 				System.out.println(preprompt); 
@@ -273,10 +275,28 @@ public class Game{
           System.out.println("Which enemy?");
 		  input = userInput(in);
 		  int hit = Integer.parseInt(input);
+		  if (party.get(whichPlayer).getName().equals("Maddie")) {
+			   countB++;
+		   }
+		  
+		   if (party.get(whichPlayer).getName().equals("Sophia")) {
+			   countT++;
+		   }
+		   if (party.get(whichPlayer).getName().equals("Maddie") && countB == 3) {
+			   party.get(whichPlayer).specialAttack(enemies.get(hit));
+			   enemies.get(hit).setHP(enemies.get(hit).getHP() - 3);
+			   yap = "It's a critical attack.";
+			   countB = 0;
+			   
+		   }
+		   else {
 		   yap = party.get(whichPlayer).attack(enemies.get(hit));
+		   }
 
 		  drawScreen(party, enemies);
 		   TextBox(15,2,78,3,yap);
+		   
+		  
 		  
 		 
 		 /*<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<*/
@@ -289,6 +309,12 @@ public class Game{
 		   yap = party.get(whichPlayer).specialAttack(enemies.get(hit));
 		  drawScreen(party,enemies);
 		  TextBox(15,2,78,3,yap);
+		  if (party.get(whichPlayer).getName().equals("Maddie")) {
+			   countB = 0;
+		   }
+		   if (party.get(whichPlayer).getName().equals("Sophia")) {
+			   countT = 0;
+		   }
 		         /*<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<*/
         }
         else if(input.equals("su") || input.equals("support")){
@@ -301,6 +327,12 @@ public class Game{
 		   yap = party.get(whichPlayer).support(party.get(hit));
 		  drawScreen(party, enemies);
 		  TextBox(15,2,78,3,yap);
+		  if (party.get(whichPlayer).getName().equals("Maddie")) {
+			   countB = 0;
+		   }
+		   if (party.get(whichPlayer).getName().equals("Sophia")) {
+			   countT = 0;
+		   }
 		 /*<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<*/
 		   } }
 		   else {
