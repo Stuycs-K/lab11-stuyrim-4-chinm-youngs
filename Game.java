@@ -257,25 +257,30 @@ public class Game{
 			 // TextBox(15,2,78,3,yap);
 			//  drawScreen(party,enemies);
 			
-			  String preprompt = "Enter command for "+party.get(whichPlayer)+": attack/special/support/quit";
+			  String preprompt = "Enter command for "+party.get(whichPlayer)+": attack/special/support/quit, and target (starting from 0)";
 				Text.go(32,1);
 				System.out.println(preprompt); 
 			  input = userInput(in);
+			  
+			  
 			  if (input.equals("q") || input.equals("quit")) {
 				  quit();
 				  return;
 			  }
 			  
+				  String[] inputs = input.split(" ");
+			  String move = inputs[0];
+			  int aim = Integer.parseInt(inputs[1]);
 			  if (party.get(whichPlayer).getHP() > 0) {
 		  
 		   
         //Process user input for the last Adventurer:
-        if(input.equals("attack") || input.equals("a")){
+        if(move.equals("attack") || move.equals("a")){
           /*>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>*/
-			drawScreen(party,enemies);
-		 System.out.println("Which enemy?");
-		  input = userInput(in);
-		  int hit = Integer.parseInt(input);
+			//drawScreen(party,enemies);
+		// System.out.println("Which enemy?");
+		//  input = userInput(in);
+		//  int hit = Integer.parseInt(input);
 		  if (party.get(whichPlayer).getName().equals("Maddie")) {
 			   countB++;
 		   }
@@ -284,14 +289,14 @@ public class Game{
 			   countT++;
 		   }
 		   if (party.get(whichPlayer).getName().equals("Maddie") && countB == 3) {
-			   party.get(whichPlayer).specialAttack(enemies.get(hit));
-			   enemies.get(hit).setHP(enemies.get(hit).getHP() - 3);
+			   party.get(whichPlayer).specialAttack(enemies.get(aim));
+			   enemies.get(aim).setHP(enemies.get(aim).getHP() - 3);
 			   yap = "It's a critical attack.";
 			   countB = 0;
 			   
 		   }
 		   else {
-		   yap = party.get(whichPlayer).attack(enemies.get(hit));
+		   yap = party.get(whichPlayer).attack(enemies.get(aim));
 		   }
 
 		  drawScreen(party, enemies);
@@ -302,12 +307,12 @@ public class Game{
 		 
 		 /*<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<*/
         }
-        else if(input.equals("special") || input.equals("sp")){
+        else if(move.equals("special") || move.equals("sp")){
           /*>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>*/
-          System.out.println("Which enemy?");
-		  input = userInput(in);
-		  int hit = Integer.parseInt(input);
-		   yap = party.get(whichPlayer).specialAttack(enemies.get(hit));
+        //  System.out.println("Which enemy?");
+		//  input = userInput(in);
+		//  int hit = Integer.parseInt(input);
+		   yap = party.get(whichPlayer).specialAttack(enemies.get(aim));
 		  drawScreen(party,enemies);
 		  TextBox(15,2,78,3,yap);
 		  if (party.get(whichPlayer).getName().equals("Maddie")) {
@@ -318,14 +323,14 @@ public class Game{
 		   }
 		         /*<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<*/
         }
-        else if(input.equals("su") || input.equals("support")){
+        else if(move.equals("su") || move.equals("support")){
           //"support 0" or "su 0" or "su 2" etc.
           //assume the value that follows su  is an integer.
           /*>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>*/
-          System.out.println("Which player?");
-		  input = userInput(in);
-		  int hit = Integer.parseInt(input);
-		   yap = party.get(whichPlayer).support(party.get(hit));
+         // System.out.println("Which player?");
+		  //input = userInput(in);
+		  //int hit = Integer.parseInt(input);
+		   yap = party.get(whichPlayer).support(party.get(aim));
 		  drawScreen(party, enemies);
 		  TextBox(15,2,78,3,yap);
 		  if (party.get(whichPlayer).getName().equals("Maddie")) {
