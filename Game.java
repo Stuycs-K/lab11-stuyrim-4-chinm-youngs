@@ -387,8 +387,20 @@ public class Game{
 		    yap = enemies.get(whichOpponent).attack(party.get(hitt));
 	  }
 	  else if (ran == 2) {
+		  if (enemies.size() == 1) {
+			  int oopsies = (int) (Math.random() * 5);
+			  if (oopsies == 0) {
+				  enemies.get(whichOpponent).specialAttack(party.get(hitt));
+				  party.get(hitt).setHP(party.get(hitt).getHP() - 2);
+				  yap = "Boss used their special attack and " + party.get(hitt) + " was burned!";
+			  }
+			  else {
+				  yap = enemies.get(whichOpponent).specialAttack(party.get(hitt));
+			  }
+		  }
+		  else {
 		   yap = enemies.get(whichOpponent).specialAttack(party.get(hitt));
-	  }
+	  }}
 	  else if (ran == 3) {
 		    yap = enemies.get(whichOpponent).support();
 	  }
