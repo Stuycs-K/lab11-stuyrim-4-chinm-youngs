@@ -45,8 +45,7 @@ public class Brute extends Adventurer{
 	  int damage2 = damage / 2;
       other.applyDamage(damage);
 	  this.applyDamage(damage2);
-      return this + " used their power to attack "+ other + " , dealing " + damage + " points of damage." +
-	  "\nThey suffered " + damage2 + " points of damage from recoil.";
+      return this + " used their power to attack "+ other + " , dealing " + damage + " points of damage. They suffered " + damage2 + " points of damage from recoil.";
     }else{
       return "Not enough food to use your power. Instead "+attack(other);
     }
