@@ -117,7 +117,7 @@ public class Game{
       //go to line and change it to red
 	    output = "\u001b[" + Text.RED + "m" + output;
     }
-    if (hp > (.25 * maxHP) && hp < (.75 * maxHP)) {
+    else if (hp < (.75 * maxHP)) {
       //go to line and change to yellow
 	    output = "\u001b[" + Text.YELLOW + "m" + output;
     }
@@ -342,6 +342,7 @@ public class Game{
 		 /*<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<*/
 		   } }
 		   else {
+			   drawScreen(party,enemies);
 			   yap = "That character is dead and cannot attack :(";
 		   }
 
@@ -349,6 +350,19 @@ public class Game{
         //If no errors:
        TextBox(15,2,78,3,yap);
 	   whichPlayer++;
+	   
+	   int alive = enemies.size();
+	   for (int y = 0; y < enemies.size(); y++) {
+		   if (enemies.get(y).getHP() < 0) {
+			   alive--;
+		   }
+		   if (alive == 0) {
+			   Text.clear();
+			   Text.go(32,1);
+			   System.out.println("Game over! You won.");
+			   return;
+		   }
+	   }
 
 
      /*   if(whichPlayer < party.size() && party.get(whichPlayer).getHP() > 0){
@@ -377,6 +391,7 @@ public class Game{
         //Enemy action choices go here!
         /*>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>*/
 	   if (enemies.get(whichOpponent).getHP() <= 0) {
+		   drawScreen(party,enemies);
 		   yap = "That character is dead and cannot attack :(";
 	   }
 		   else{
@@ -420,6 +435,18 @@ public class Game{
 
 
         whichOpponent++;
+		int alive = party.size();
+		 for (int y = 0; y < party.size(); y++) {
+		   if (party.get(y).getHP() < 0) {
+			   alive--;
+		   }
+		   if (alive == 0) {
+			   Text.clear();
+			   Text.go(32,1);
+			   System.out.println("Game over! You lost.");
+			   return;
+		   }
+	   }
 
       //end of one enemy.
 
