@@ -22,7 +22,12 @@ Make a clear list of features that work/dont work
 |---|---|---|---|
 |Name|Carmack/user|Sophia|Maddie|
 |HPMax|30|30|30|
-|Special|Caffeine|Money||
+|Special|Caffeine(6/12)|Money(6/12)|Food(6/12)|
+|Attack damage|2-7|1-6|3-8|
+|Special Attack|Language deals 3-12 damage, reduces caffeine by 8|Health Transfer deals 1-6 damage and restores your hp by the same amount, consumes 2 money|Power deals 5-13 damage and 1/2 is dealt back to you because of recoil, consumes 2 food|
+|Support self|1 hp and 6 special|5 hp|6 hp|
+|Support other|5 special|5 hp|none|
+|Extra||turn steal|critical hit|
 
 ### Code Warrior:
 - name: [user inputs]
@@ -81,13 +86,15 @@ Make a clear list of features that work/dont work
 - extra feature
   - status effect: target may be burned and lose small amounts of hp
 
+### Features
+
 |Feature|Status|
 |---|---|
-|Direct attacks||
-|Critical hit(Brute)||
-|Move Steal(Thief)||
-|||
-|||
-|||
-|||
-|||
+|Display Screen| :white_check_mark: |
+|Player moves| :question: |
+|quit| :white_check_mark: |
+|Enemy moves| :white_check_mark: |
+|Death| :white_check_mark: |
+|Critical hit(Brute)|:ballot_box_with_check: |
+|Move Steal(Thief)| :question: |
+|Colored HP| :white_check_mark: |
